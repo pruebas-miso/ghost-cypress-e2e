@@ -1,0 +1,23 @@
+{
+  "name": "ghost-cypress-e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pruebas-miso/ghost-cypress-e2e.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pruebas-miso/ghost-cypress-e2e/issues"
+  },
+  "homepage": "https://github.com/pruebas-miso/ghost-cypress-e2e#readme",
+  "devDependencies": {
+    "cypress": "^7.2.0"
+  }
+}
