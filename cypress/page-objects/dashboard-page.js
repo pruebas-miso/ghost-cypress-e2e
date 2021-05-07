@@ -1,14 +1,18 @@
 export class DashboardPage {
 
-    navigate() {
-      cy.visit('http://google.com/')
-    }
+  clickOnPosts() {
+    cy.get('#ember30').click()
+  }
 
-    login() {
-        cy.visit('http://localhost:2368/ghost/')
-      }
-  
-    clickOnViewSite(todoText) {
-      cy.get('.new-todo').type(todoText + '{enter}')
-    }
+  clickOnPages() {
+    cy.get('#ember39').click()
+  }
+
+  clickOnTags() {
+    cy.get('#ember40').click()
+  }
+
+  clickOnMember() {
+    cy.get('#ember41').click()
+  }
 }

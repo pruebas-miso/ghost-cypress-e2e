@@ -1,29 +1,26 @@
 /// <reference types="cypress" />
 
-import { navigate, TagsPage } from "../../page-objects/tags-page";
+import { TagsPage } from "../../page-objects/tags-page";
+import { DashboardPage } from "../../page-objects/dashboard-page";
 
-Cypress.on('uncaught:exception', (err, runnable) => {
+Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-import {navigate} from './'
-
 describe("tag actions", () => {
-
+  const tagsPage = new TagsPage();
+  const dashPage = new DashboardPage();
 
   beforeEach(() => {
-    cy.visit('http://localhost:2368/ghost/#/signin')
-    // cy.get('.email.ember-text-field.gh-input.ember-view').type('pedro3087@gmail.com')
-    // cy.get('.password.ember-text-field.gh-input.ember-view').type('administrador')
-    // cy.get('#ember12 > span').click()
-
-    // cy.wait(200)
+    tagsPage.navigatetoDashboard();
+    dashPage.clickOnTags();
   });
 
-  it("should add a new tag to the list", () => {
+  it("should ADD a new tag to the list", () => {
+    tagsPage.clickToAddNewTag();
+  });
 
-
-    // cy.get('#ember40').click()
-    
+  it("should Edit a new tag to the list", () => {
+    tagsPage.clickToAddNewTag();
   });
 });
