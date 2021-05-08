@@ -9,7 +9,7 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-describe("POST Functionality - E2E scenrios", () => {
+describe("POST Functionality - E2E scenarios", () => {
   const loginPage = new LoginPage();
   const dashPage = new DashboardPage();
   const postPage = new PostPage();

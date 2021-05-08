@@ -2,17 +2,19 @@
 
 import { TagsPage } from "../../page-objects/tags-page";
 import { DashboardPage } from "../../page-objects/dashboard-page";
+import { LoginPage } from '../../page-objects/login-page.js';
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-describe("TAG Functionality - E2E scenrios", () => {
+describe("TAG Functionality - E2E scenarios", () => {
   const tagsPage = new TagsPage();
   const dashPage = new DashboardPage();
+  const loginPage = new LoginPage();
 
   beforeEach(() => {
-    tagsPage.navigatetoDashboard();
+    loginPage.loginAndGoToDashBoard() ;
     dashPage.clickOnTags();
   });
 
