@@ -19,5 +19,8 @@
   "homepage": "https://github.com/pruebas-miso/ghost-cypress-e2e#readme",
   "devDependencies": {
     "cypress": "^7.2.0"
+  },
+  "dependencies": {
+    "faker": "^5.5.3"
   }
 }
