@@ -31,7 +31,7 @@ export class MemberPage {
         cy.get('#ember113 > span').click();
     }
 
-    SearchMember() {
+    searchMember() {
         cy.visit('http://localhost:2368/ghost/#/members');
         cy.get('#ember137').type("Roberto");
     }
