@@ -14,7 +14,9 @@ export class LoginPage {
       cy.get(".password.ember-text-field.gh-input.ember-view").type(
         this.pass
       );
+      cy.wait(1000)
       cy.get("#ember12 > span").click();
+      cy.wait(1000)
     }
   
   }

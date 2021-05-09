@@ -13,6 +13,6 @@ export class DashboardPage {
   }
 
   clickOnMember() {
-    cy.get('#ember41').click()
+    cy.get('#ember32').click()
   }
 }
