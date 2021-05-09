@@ -2,7 +2,7 @@
 
 export class MemberPage {
     clickToNewMember() {
-        cy.get('#ember51 > span').click();
+        cy.get(".ember-view gh-btn gh-btn-green").first().click({ force: true });
     }
 
     typeName(name) {
@@ -18,22 +18,21 @@ export class MemberPage {
     }
 
     clickSaveMember() {
-        cy.get('#ember94 > span').click();
+        cy.get(".gh-btn gh-btn-blue gh-btn-icon ember-view").first().click({ force: true });
     }
 
     clickToMember() {
         cy.visit('http://localhost:2368/ghost/#/members');
-        cy.get('#ember76').click();
+        cy.get('.members-list gh-list li:nth-child(1)').click();
     }
 
     deleteMember() {
-        cy.get('.gh-btn-red > span').click();
-        cy.get('#ember113 > span').click();
+        cy.get(".gh-btn.gh-btn-red.gh-btn-icon.ember-view").first().click({ force: true });
     }
 
     searchMember() {
         cy.visit('http://localhost:2368/ghost/#/members');
-        cy.get('#ember137').type("Roberto");
+        cy.get(".ember-text-field gh-input ember-view gh-members-list-searchfield").type("Roberto", { force : true });
     }
     
 }
