@@ -50,7 +50,7 @@ describe("Members Functionality - E2E scenarios", () => {
     })
 
     it("Debe poder buscar un miembro", () => {
-        memberPage.searchMember();
+        memberPage.searchMember(memberName);
     })
 
 

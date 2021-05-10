@@ -2,7 +2,7 @@
 
 export class MemberPage {
     clickToNewMember() {
-        cy.get(".ember-view gh-btn gh-btn-green").first().click({ force: true });
+        cy.get('[class="ember-view gh-btn gh-btn-green"]').first().click({ force: true });
     }
 
     typeName(name) {
@@ -18,21 +18,25 @@ export class MemberPage {
     }
 
     clickSaveMember() {
-        cy.get(".gh-btn gh-btn-blue gh-btn-icon ember-view").first().click({ force: true });
+        cy.get(".gh-btn-blue").first().click({ force: true });
     }
 
     clickToMember() {
         cy.visit('http://localhost:2368/ghost/#/members');
-        cy.get('.members-list gh-list li:nth-child(1)').click();
+        cy.get('ol>li').last().click();
     }
 
     deleteMember() {
-        cy.get(".gh-btn.gh-btn-red.gh-btn-icon.ember-view").first().click({ force: true });
+        cy.get(".gh-btn-red").first().click({ force: true });
+        cy.wait(500);
+        cy.get('[class="gh-btn gh-btn-red gh-btn-icon ember-view"]').click( { force: true } );
     }
 
-    searchMember() {
+    searchMember(name) {
         cy.visit('http://localhost:2368/ghost/#/members');
-        cy.get(".ember-text-field gh-input ember-view gh-members-list-searchfield").type("Roberto", { force : true });
+        cy.get('[class="ember-text-field gh-input ember-view gh-members-list-searchfield "]').type(name, { force : true });
+        cy.wait(500);
+        cy.get('[class="ma0 pa0 gh-members-list-name "]').should('contain', name);
     }
     
 }
