@@ -1,7 +1,8 @@
 export class DashboardPage {
 
   clickOnPosts() {
-    cy.get('#ember30').click()
+    cy.waitFor(3000)
+    cy.get(".ember-view").contains('Posts').click({ force: true });
   }
 
   clickOnPages() {
@@ -9,10 +10,12 @@ export class DashboardPage {
   }
 
   clickOnTags() {
-    cy.get('#ember40').click()
+    cy.waitFor(3000)
+    cy.get(".ember-view").contains('Tags').click({ force: true });
   }
 
   clickOnMember() {
-    cy.get('#ember32').click()
+    cy.waitFor(3000)
+    cy.get(".ember-view").contains('Members').click({ force: true });
   }
 }
