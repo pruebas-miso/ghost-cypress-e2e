@@ -5,7 +5,7 @@ export class DashboardPage {
   }
 
   clickOnPages() {
-    cy.get('#ember39').click()
+    cy.get('[href="#/pages/"]').click()
   }
 
   clickOnTags() {
