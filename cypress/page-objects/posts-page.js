@@ -3,7 +3,7 @@
 export class PostPage {
   
     clickToNewPost() {
-      cy.get(".ember-view.gh-btn.gh-btn-primary").first().click({ force: true });
+      cy.get(".gh-btn.gh-btn-green.ember-view").first().click({ force: true });
     }
 
     addTitle(title) {
@@ -35,8 +35,8 @@ export class PostPage {
     }
     
     savePost(){
-        cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-editor.gh-publishmenu-trigger').click()
-        cy.get('.gh-btn.gh-btn-black.gh-publishmenu-button.gh-btn-icon.ember-view').click() 
+        cy.get('.gh-btn.gh-btn-outline.gh-publishmenu-trigger.ember-basic-dropdown-trigger.ember-view').click()
+        cy.get('.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view').click() 
     }
     
     postWithNameExist(title){
@@ -52,7 +52,7 @@ export class PostPage {
     }
 
     clickPostSettings(){
-        cy.get('.gh-btn.gh-btn-editor.gh-btn-icon.only-has-icon.gh-actions-cog.ml3').click()
+        cy.get('.post-settings').click()
     }
 
     clickDeletePost(){
@@ -66,13 +66,14 @@ export class PostPage {
     }
     
     unpublishPost(){
-        cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-editor.gh-publishmenu-trigger').click()
+        cy.get('.gh-btn.gh-btn-outline.gh-publishmenu-trigger.ember-basic-dropdown-trigger.ember-view').click()
         cy.get('.gh-publishmenu-radio-button').first().click()
-        cy.get('.gh-btn.gh-btn-black.gh-publishmenu-button.gh-btn-icon.ember-view').click() 
+        cy.get('.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view').click() 
     }
 
-    seePostPreview(){
-        cy.get('.gh-btn.gh-editor-preview-trigger').click() 
-        cy.wait(1000);
+    setPostForPublishLater(){
+        cy.get('.gh-btn.gh-btn-outline.gh-publishmenu-trigger.ember-basic-dropdown-trigger.ember-view').click()
+        cy.get('.gh-publishmenu-radio-button').click({ multiple: true,force: true })
+        cy.get('.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view').click() 
     }
   }

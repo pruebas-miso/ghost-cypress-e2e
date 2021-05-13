@@ -60,9 +60,9 @@ describe("POST Functionality - E2E scenarios", () => {
     });
 
     context('ESCENARIO 4',function(){
-        it('ver preview de post en draf',function(){
+        it('schedule it for later de post en draf',function(){
             postPage.getPostWithName(postTitleEdited);
-            postPage.seePostPreview();
+            postPage.setPostForPublishLater();
         })
 
     });
