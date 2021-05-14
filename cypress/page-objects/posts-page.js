@@ -62,10 +62,11 @@ export class PostPage {
     }
 
     clickDeletePost(scenarioFunctionality,step){
-        cy.get('form > .gh-btn > span').click()
-          .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+        cy.wait(500);
+        cy.get('form > .gh-btn > span').click();
         cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view').click({ multiple: true,force: true })
           .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+        cy.wait(500);  
     }
 
     scrollPostSetting(mode,scenarioFunctionality,step){
