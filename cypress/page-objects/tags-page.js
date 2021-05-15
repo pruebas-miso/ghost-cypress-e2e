@@ -15,7 +15,7 @@ export class TagsPage {
   }
 
   clickToAddNewTag() {
-    cy.get(".ember-view.gh-btn.gh-btn-primary").first().click({ force: true });
+    cy.get(".gh-btn.gh-btn-green.ember-view").first().click({ force: true });
   }
 
   clickToExistingTag(tagText) {
@@ -68,7 +68,7 @@ export class TagsPage {
   }
 
   clickOnSaveTag() {
-    cy.get(".ember-view.gh-btn.gh-btn-primary").click();
+    cy.get(".gh-btn.gh-btn-blue.gh-btn-icon.ember-view").click();
   }
 
   validateNewCreatedTag(expectedText) {
