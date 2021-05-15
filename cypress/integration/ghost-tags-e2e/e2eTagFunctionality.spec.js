@@ -52,6 +52,7 @@ describe("TAG Functionality - E2E scenarios", () => {
     it("should ADD MetaData to an existing tag on the list", () => {
       tagsPage.clickToExistingTag("Tag1",scenario[cont]+functionality,step);
 
+      tagsPage.clickToMetaDataDetails(scenario[cont]+functionality,step);
 
       tagsPage.addMetaDataToExistingTag(
         "http://localhost:2368/tag/getting-started/",

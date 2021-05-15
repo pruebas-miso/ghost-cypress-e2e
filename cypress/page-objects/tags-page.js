@@ -44,9 +44,11 @@ export class TagsPage {
  
   }
 
-  clickToMetaDataDetails() {
-    cy.get(".gh-expandable-title").contains('Meta data').click({ force: true });
-    cy.get(".gh-btn.gh-btn-expand").first().click({ force: true });
+  clickToMetaDataDetails(scenarioFunctionality,step) {
+    cy.get(".gh-setting-title").contains('Meta data').click({ force: true });
+    cy.get(".gh-btn").contains('Expand').first().click({ force: true })
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+ 
   }
   
   addMetaDataToExistingTag(tagText, tagDescr, scenarioFunctionality,step) {
