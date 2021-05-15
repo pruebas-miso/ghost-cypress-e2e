@@ -1,9 +1,11 @@
 /// <reference types="cypress" />
 
 export class TagsPage {
+  
+  version = Cypress.config("versionGhost");
+  takeScreenshoot = Cypress.config("takeScreenshoot");
 
-
-  navigatetoDashboard() {
+  navigatetoDashboard(scenarioFunctionality,step) {
     cy.visit("http://localhost:2368/ghost/#/signin");
     cy.get(".email.ember-text-field.gh-input.ember-view").type(
       "pedro3087@gmail.com"
@@ -11,18 +13,23 @@ export class TagsPage {
     cy.get(".password.ember-text-field.gh-input.ember-view").type(
       "administrador"
     );
-    cy.get("#ember12 > span").click();
+    cy.get("#ember12 > span").click()
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
   }
 
-  clickToAddNewTag() {
-    cy.get(".gh-btn.gh-btn-green.ember-view").first().click({ force: true });
+  clickToAddNewTag(scenarioFunctionality,step) {
+    cy.get(".gh-btn.gh-btn-green.ember-view").first().click({ force: true })
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+ 
   }
 
-  clickToExistingTag(tagText) {
-    cy.get(".gh-tag-list-name").contains(tagText).click({ force: true });
+  clickToExistingTag(tagText,scenarioFunctionality,step) {
+    cy.get(".gh-tag-list-name").contains(tagText).click({ force: true })
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+ 
   }
 
-  editDetailsExistingTag(tagText, tagDescr) {
+  editDetailsExistingTag(tagText, tagDescr, scenarioFunctionality,step) {
     cy.waitFor("#tag-name");
 
     cy.get(".ember-text-field.gh-input.ember-view")
@@ -32,7 +39,9 @@ export class TagsPage {
       .first()
       .type(tagText, { force: true });
     cy.get("#tag-description").first().clear({ force: true });
-    cy.get("#tag-description").first().type(tagDescr, { force: true });
+    cy.get("#tag-description").first().type(tagDescr, { force: true })
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+ 
   }
 
   clickToMetaDataDetails() {
@@ -40,7 +49,7 @@ export class TagsPage {
     cy.get(".gh-btn.gh-btn-expand").first().click({ force: true });
   }
   
-  addMetaDataToExistingTag(tagText, tagDescr) {
+  addMetaDataToExistingTag(tagText, tagDescr, scenarioFunctionality,step) {
     cy.waitFor("#tag-name");
 
 
@@ -51,24 +60,32 @@ export class TagsPage {
       .last()
       .type(tagText, { force: true });
     cy.get("#meta-description").first().clear({ force: true });
-    cy.get("#meta-description").first().type(tagDescr, { force: true });
+    cy.get("#meta-description").first().type(tagDescr, { force: true })
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+ 
   }
 
-  clickDeleteTag(tagText) {
+  clickDeleteTag(tagText, scenarioFunctionality,step) {
     cy.get("button").contains('Delete tag').click({ force: true });
-    cy.get(".gh-btn.gh-btn-red.gh-btn-icon.ember-view").first().click({ force: true });
+    cy.get(".gh-btn.gh-btn-red.gh-btn-icon.ember-view").first().click({ force: true })
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+ 
   }
 
-  enterDetailsNewTag(tagText, tagDescr) {
+  enterDetailsNewTag(tagText, tagDescr, scenarioFunctionality,step) {
     cy.waitFor("#tag-name");
     cy.get(".ember-text-field.gh-input.ember-view")
       .first()
       .type(tagText, { force: true });
-    cy.get("#tag-description").first().type(tagDescr, { force: true });
+    cy.get("#tag-description").first().type(tagDescr, { force: true })
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+ 
   }
 
-  clickOnSaveTag() {
-    cy.get(".gh-btn.gh-btn-blue.gh-btn-icon.ember-view").click();
+  clickOnSaveTag(scenarioFunctionality,step) {
+    cy.get(".gh-btn.gh-btn-blue.gh-btn-icon.ember-view").click()
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+ 
   }
 
   validateNewCreatedTag(expectedText) {

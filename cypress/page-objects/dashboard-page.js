@@ -13,9 +13,11 @@ export class DashboardPage {
     cy.get('[href="#/pages/"]').click()
   }
 
-  clickOnTags() {
+  clickOnTags(scenarioFunctionality,step) {
     cy.waitFor(3000)
-    cy.get(".ember-view").contains('Tags').click({ force: true });
+    cy.get(".ember-view").contains('Tags').click({ force: true })
+    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+
   }
 
   clickOnMember() {
