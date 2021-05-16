@@ -16,70 +16,78 @@ describe("PAGE Functionality - E2E scenarios", () => {
     const pageTitle = faker.lorem.word();
     const pageTitleEdited = faker.lorem.word() + " " + faker.lorem.word();
     const pageText = faker.lorem.paragraph();
+    const functionality = "Page";
+    const scenario = ["Crear", "EditarTitulo", "EditarTexto", "Eliminar", "Agendar"];
+    var step = { 'step': 1 };
+    var cont = 0
 
     beforeEach(() => {
-        loginPage.loginAndGoToDashBoard();
-        dashPage.clickOnPages();
+        loginPage.loginAndGoToDashBoard(scenario[cont] + functionality, step);
+        dashPage.clickOnPages(scenario[cont] + functionality, step);
     });
 
     context('ESCENARIO 1', function () {
         it('Crear página con titulo', function () {
-            pagePage.clickToNewPage();
-            pagePage.addTitle(pageTitle);
+            pagePage.clickToNewPage(scenario[0] + functionality, step);
+            pagePage.addTitle(pageTitle, scenario[0] + functionality, step);
             pagePage.savePage();
         })
-        it('Publicar la página',function(){
-            pagePage.getDraft(pageTitle);
-            pagePage.publishPage();
+        it('Publicar la página', function () {
+            pagePage.getDraft(pageTitle, scenario[0] + functionality, step);
+            pagePage.publishPage(scenario[0] + functionality, step);
         })
-        it('Buscar página publicada',function(){
-            pagePage.pageWithNameExist(pageTitle);
+        it('Buscar página publicada', function () {
+            pagePage.pageWithNameExist(pageTitle, scenario[0] + functionality, step);
+            cont++;
         })
     });
 
     context('ESCENARIO 2', function () {
         it('Editar título de página', function () {
-            pagePage.getDraft(pageTitle);
-            pagePage.deleteTitle(pageTitle);
-            pagePage.addTitle(pageTitleEdited);
-            pagePage.publishPage();
+            pagePage.getDraft(pageTitle, scenario[0] + functionality, step);
+            pagePage.deleteTitle(scenario[0] + functionality, step);
+            pagePage.addTitle(pageTitleEdited, scenario[0] + functionality, step);
+            pagePage.publishPage(scenario[0] + functionality, step);
         })
-        it('Buscar página editada',function(){
-            pagePage.pageWithNameExist(pageTitleEdited);
+        it('Buscar página editada', function () {
+            pagePage.pageWithNameExist(pageTitleEdited, scenario[0] + functionality, step);
+            cont++;
         })
     });
 
     context('ESCENARIO 3', function () {
         it('Editar texto de página', function () {
-            pagePage.getDraft(pageTitleEdited);
-            pagePage.addParagraph(pageText);
-            pagePage.publishPage();
+            pagePage.getDraft(pageTitleEdited, scenario[0] + functionality, step);
+            pagePage.addParagraph(pageText, scenario[0] + functionality, step);
+            pagePage.publishPage(scenario[0] + functionality, step);
         })
-        it('Buscar página con texto editado',function(){
-            pagePage.pageWithNameExist(pageTitleEdited);
+        it('Buscar página con texto editado', function () {
+            pagePage.pageWithNameExist(pageTitleEdited, scenario[0] + functionality, step);
+            cont++;
         })
     });
 
     context('ESCENARIO 4', function () {
         it('Eliminar página', function () {
-            pagePage.getDraft(pageTitleEdited);
-            pagePage.openSettings();
-            pagePage.deletePage();
+            pagePage.getDraft(pageTitleEdited, scenario[0] + functionality, step);
+            pagePage.openSettings(scenario[0] + functionality, step);
+            pagePage.deletePage(scenario[0] + functionality, step);
+            cont++;
         })
     });
 
     context('ESCENARIO 5', function () {
         it('Crear página con titulo', function () {
-            pagePage.clickToNewPage();
-            pagePage.addTitle(pageTitle);
+            pagePage.clickToNewPage(scenario[0] + functionality, step);
+            pagePage.addTitle(pageTitle, scenario[0] + functionality, step);
             pagePage.savePage();
         })
-        it('Agendar la página',function(){
-            pagePage.getDraft(pageTitle);
-            pagePage.schedulePage();
+        it('Agendar la página', function () {
+            pagePage.getDraft(pageTitle, scenario[0] + functionality, step);
+            pagePage.schedulePage(scenario[0] + functionality, step);
         })
-        it('Buscar página agendada',function(){
-            pagePage.pageWithNameExist(pageTitle);
+        it('Buscar página agendada', function () {
+            pagePage.pageWithNameExist(pageTitle, scenario[0] + functionality, step);
         })
     });
 });
