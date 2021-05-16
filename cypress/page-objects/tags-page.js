@@ -69,9 +69,10 @@ export class TagsPage {
 
   clickDeleteTag(tagText, scenarioFunctionality,step) {
     cy.get("button").contains('Delete tag').click({ force: true });
-    cy.get(".gh-btn.gh-btn-red.gh-btn-icon.ember-view").first().click({ force: true })
-    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
- 
+    cy.screenshot(`${"DeleteTag"}_v${this.version}_cypress_paso_1`);
+    cy.get(".gh-btn.gh-btn-red.gh-btn-icon.ember-view").first().click({ force: true });   
+    cy.screenshot(`${"DeleteTag"}_v${this.version}_cypress_paso_2`);
+    
   }
 
   enterDetailsNewTag(tagText, tagDescr, scenarioFunctionality,step) {
@@ -85,8 +86,8 @@ export class TagsPage {
   }
 
   clickOnSaveTag(scenarioFunctionality,step) {
-    cy.get(".gh-btn.gh-btn-blue.gh-btn-icon.ember-view").click()
-    .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
+    cy.get(".gh-btn.gh-btn-blue.gh-btn-icon.ember-view").click();
+    // .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${scenarioFunctionality}_v${this.version}_cypress_paso_${step['step']++}`):null});
  
   }
 

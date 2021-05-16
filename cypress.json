@@ -1,8 +1,8 @@
 {
   "baseUrl":"http://localhost:2368/ghost/#/signin",
   "ghostUser":"admin@gmail.com",
-  "ghostPass":"Administrador123",
-  "versionGhost": "3.3.0",
+  "ghostPass":"administrador",
+  "versionGhost": "3.42.5",
   "takeScreenshoot": true,
   "viewportWidth": 1000,
   "viewportHeight": 660,
