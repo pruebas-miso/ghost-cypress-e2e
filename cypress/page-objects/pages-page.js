@@ -6,7 +6,7 @@ export class PagePage {
     takeScreenshoot = Cypress.config("takeScreenshoot");
 
     clickToNewPage(scenarioFunctionality, step) {
-        cy.get(".gh-btn.gh-btn-green.ember-view").click({ force: true })
+        cy.get(".gh-btn.gh-btn-green.ember-view").click({ force: true, multiple: true })
             .then(async () => { this.takeScreenshoot ? await cy.screenshot(`${this.version}/${scenarioFunctionality}_cypress_paso_${step['step']++}`) : null });
     }
 
