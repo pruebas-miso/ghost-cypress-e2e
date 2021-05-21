@@ -16,7 +16,7 @@ export class PagePage {
     }
 
     savePage() {
-        cy.get('.flex.items-center.pl4.pr4.f8.nudge-left--1.h9.br2.br--right.bg-white').click()
+        cy.get('.flex.items-center.pl4.pr4.f8.nudge-left--1.h9.br2.br--right.bg-white').click();
     }
 
     getDraft(title, scenarioFunctionality, step) {

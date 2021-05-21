@@ -90,4 +90,82 @@ describe("PAGE Functionality - E2E scenarios", () => {
             pagePage.pageWithNameExist(pageTitle, scenario[0] + functionality, step);
         })
     });
+
+    context('ESCENARIO 6', function () {
+        let ip = faker.internet.ipv6();
+        it('Crear página con titulo', function () {
+            pagePage.clickToNewPage(scenario[0] + functionality, step);
+            pagePage.addTitle(ip, scenario[0] + functionality, step);
+            pagePage.savePage();
+        })
+        it('Publicar la página', function () {
+            pagePage.getDraft(ip, scenario[0] + functionality, step);
+            pagePage.publishPage(scenario[0] + functionality, step);
+        })
+        it('Buscar página publicada', function () {
+            pagePage.pageWithNameExist(ip, scenario[0] + functionality, step);
+            cont++;
+        })
+    });
+
+    context('ESCENARIO 7', function () {
+        let paraphs = faker.lorem.paragraphs();
+        it('Editar título de página', function () {
+            pagePage.getDraft(pageTitle, scenario[0] + functionality, step);
+            pagePage.deleteTitle(scenario[0] + functionality, step);
+            pagePage.addTitle(paraphs, scenario[0] + functionality, step);
+            pagePage.publishPage(scenario[0] + functionality, step);
+        })
+        it('Buscar página editada', function () {
+            pagePage.pageWithNameExist(paraphs, scenario[0] + functionality, step);
+            cont++;
+        })
+    });
+
+    context('ESCENARIO 8', function () {
+        it('Crear página con titulo', function () {
+            pagePage.clickToNewPage(scenario[0] + functionality, step);
+            pagePage.addTitle("               ", scenario[0] + functionality, step);
+            pagePage.savePage();
+        })
+        it('Agendar la página', function () {
+            pagePage.getDraft("(Untitled)", scenario[0] + functionality, step);
+            pagePage.schedulePage(scenario[0] + functionality, step);
+        })
+        it('Buscar página agendada', function () {
+            pagePage.pageWithNameExist("(Untitled)", scenario[0] + functionality, step);
+        })
+    });
+
+    context('ESCENARIO 9', function () {
+        let phone = faker.datatype.number(9999999999);
+        it('Crear página con titulo', function () {
+            pagePage.clickToNewPage(scenario[0] + functionality, step);
+            pagePage.addTitle(phone, scenario[0] + functionality, step);
+            pagePage.savePage();
+        })
+        it('Agendar la página', function () {
+            pagePage.getDraft(phone, scenario[0] + functionality, step);
+            pagePage.schedulePage(scenario[0] + functionality, step);
+        })
+        it('Buscar página agendada', function () {
+            pagePage.pageWithNameExist(phone, scenario[0] + functionality, step);
+        })
+    });
+
+    context('ESCENARIO 10', function () {
+        let email = faker.internet.email();
+        it('Crear página con titulo', function () {
+            pagePage.clickToNewPage(scenario[0] + functionality, step);
+            pagePage.addTitle(email, scenario[0] + functionality, step);
+            pagePage.savePage();
+        })
+        it('Agendar la página', function () {
+            pagePage.getDraft(email, scenario[0] + functionality, step);
+            pagePage.schedulePage(scenario[0] + functionality, step);
+        })
+        it('Buscar página agendada', function () {
+            pagePage.pageWithNameExist(email, scenario[0] + functionality, step);
+        })
+    });
 });
