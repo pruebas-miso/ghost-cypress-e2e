@@ -23,7 +23,7 @@ describe("POST Functionality - E2E scenarios aleatorios", () => {
   var cont = 0
 
   beforeEach(function (){
-    cy.fixture('MOCK_DATA_POST.json').then((mock)=>{
+    cy.fixture('MOCK_DATA_POST_PSEUDO.json').then((mock)=>{
         let randInd = randomInt(0, 500);
         this.fixture = mock[randInd]
     })  
