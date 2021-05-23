@@ -1,6 +1,6 @@
 {
   "baseUrl":"http://localhost:2368/ghost/#/signin",
-  "ghostUser":"admin@gmail.com",
+  "ghostUser":"r.carrenoz@uniandes.edu.co",
   "ghostPass":"administrador",
   "versionGhost": "3.42.5",
   "takeScreenshoot": false,
