@@ -32,7 +32,17 @@ export class PostPage {
         cy.get('.koenig-editor__editor-wrapper').type(paragraph)
           .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${this.version}/${scenarioFunctionality}_cypress_paso_${step['step']++}`):null}); 
     }
-    
+
+    addTextInExcerpt(paragraph,scenarioFunctionality,step){
+      cy.get('.post-setting-custom-excerpt.ember-text-area.gh-input.ember-view').type(paragraph)
+        .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${this.version}/${scenarioFunctionality}_cypress_paso_${step['step']++}`):null}); 
+    }
+
+    closePostSettings(scenarioFunctionality,step){
+      cy.get('.close.settings-menu-header-action').click()
+        .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${this.version}/${scenarioFunctionality}_cypress_paso_${step['step']++}`):null}); 
+    }
+
     savePost(scenarioFunctionality,step){
         cy.get('.gh-btn.gh-btn-outline.gh-publishmenu-trigger.ember-basic-dropdown-trigger.ember-view').click()
           .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${this.version}/${scenarioFunctionality}_cypress_paso_${step['step']++}`):null}); 
