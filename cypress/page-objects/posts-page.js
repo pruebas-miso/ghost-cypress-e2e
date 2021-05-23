@@ -61,6 +61,10 @@ export class PostPage {
           .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${this.version}/${scenarioFunctionality}_cypress_paso_${step['step']++}`):null});
     }
 
+    getlastPost(){
+      cy.get(".gh-post-list-title > :nth-child(2)").first().click({ force: true })
+    }
+
     getPostWithName(title,scenarioFunctionality,step){
         cy.get(".gh-post-list-title").contains(title).click({ force: true })
           .then(async()=>{this.takeScreenshoot ? await cy.screenshot(`${this.version}/${scenarioFunctionality}_cypress_paso_${step['step']++}`):null}); 
