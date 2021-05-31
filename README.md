@@ -1,9 +1,5 @@
 # ghost-cypress-e2e
 
-* Este [Link](https://github.com/pruebas-miso/ghost-cypress-e2e/wiki/Escenarios) lo direccionará a la wiki donde se encuentrán las 5 funcionailidades y 20 escenarios descritos.
-
-* Este [Link](https://github.com/pruebas-miso/ghost-cypress-e2e/wiki/ProsContras) lo direccionará a la wiki donde se encuentrán los pros y contras de las herramientas usadas. 
-
 Instrucciones de ejecución : 
 
 - Estar en un directorió donde desee trabajar 
@@ -20,6 +16,8 @@ Instrucciones de ejecución :
 - Si se tiene una instancia recien instalada de Ghost, se debe configurar el aplicativo para que habilite el menú de Members. Para ello se debe ir a la opción Labs del panel de configuración de Ghost (http://localhost:2368/ghost/#/settings/labs) y habilitar la opción Members.
 
 **************************
+# Enlaces de interes para el entregable Semana 8: 
+
 Para ejecutar las pruebas correspondientes a: 
 1. Pruebas de reconocimiento / MONKEYS, vaya a este [Link](https://github.com/pruebas-miso/monkeys)
 2. Pruebas de reconocimiento / Rippers, vaya a este [Link](https://github.com/pruebas-miso/rippers)
